@@ -4,6 +4,8 @@
   export let operator;
   export let operandA;
   export let operandB;
+  export let tmp;
+  export let isCommaOn = false;
 
   function handleClick() {
     if (value === "C") {
@@ -11,27 +13,83 @@
       operandA = "";
       operandB = "";
       operator = "";
+      tmp = "";
+      isCommaOn = false;
     } else if (value === "=") {
-      switch (operator) {
-        case "+":
-          currentDisplay = operandA + operandB;
-          break;
-        case "-":
-          currentDisplay = operandA - operandB;
-          break;
-        case "*":
-          currentDisplay = operandA * operandB;
-          break;
-        case "/":
-          currentDisplay = operandA / operandB;
-          break;
+      if (operandB) {
+        switch (operator) {
+          case "+":
+            currentDisplay = operandA + operandB;
+            break;
+          case "-":
+            currentDisplay = operandA - operandB;
+            break;
+          case "*":
+            currentDisplay = operandA * operandB;
+            break;
+          case "/":
+            currentDisplay = operandA / operandB;
+            break;
+          case "%":
+            currentDisplay = operandA % operandB;
+            break;
+        }
       }
       operandA = currentDisplay;
+      operator = "";
+      tmp = "";
+      operandB = "";
+      isCommaOn = false;
+    } else if (value === "!") {
+      if (operandB) {
+        operandB = operandB * -1;
+        currentDisplay = operandB;
+        console.log(operandB);
+      } else {
+        currentDisplay = currentDisplay * -1;
+        console.log(operandA);
+      }
+    } else if (value === ".") {
+      if (!tmp) {
+        if (!isCommaOn) {
+          isCommaOn = true;
+          currentDisplay += ".";
+        }
+      } else {
+        if (!isCommaOn) {
+          isCommaOn = true;
+          tmp += ".";
+        }
+      }
     } else if (typeof value !== "number") {
       if (!operator) {
         operator = value;
         operandA = currentDisplay;
       } else {
+        if (operandB) {
+          switch (operator) {
+            case "+":
+              currentDisplay = operandA + operandB;
+              break;
+            case "-":
+              currentDisplay = operandA - operandB;
+              break;
+            case "*":
+              currentDisplay = operandA * operandB;
+              break;
+            case "/":
+              currentDisplay = operandA / operandB;
+              break;
+            case "%":
+              currentDisplay = operandA % operandB;
+              break;
+          }
+          operandA = currentDisplay;
+          operator = value;
+          tmp = "";
+          operandB = "";
+          isCommaOn = false;
+        }
         operator = value;
       }
     } else {
@@ -40,18 +98,19 @@
         currentDisplay = +currentDisplay;
       } else {
         currentDisplay = "";
-        currentDisplay += "" + value;
-        currentDisplay = +currentDisplay;
-        operandB = currentDisplay;
+        tmp = tmp + value;
+        currentDisplay = tmp;
+        operandB = +tmp;
       }
     }
-    console.log(operator);
-    console.log(operandA);
-    console.log(operandB);
   }
 </script>
 
-<button class="btn" on:click={handleClick} class:active={operator === value}>
+<button
+  class="btn"
+  on:click={handleClick}
+  class:active={operator === value && !operandB}
+>
   {value}
 </button>
 
