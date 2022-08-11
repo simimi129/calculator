@@ -7,7 +7,10 @@
   export let tmp;
   export let isCommaOn = false;
 
+  const audio = new Audio("/button.mp3");
+
   function handleClick() {
+    audio.play();
     if (value === "C") {
       currentDisplay = "";
       operandA = "";
@@ -123,9 +126,28 @@
     border: 1px solid #999;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
     background-color: #888;
+    transition: all 0.2s;
+  }
+
+  .btn:hover {
+    background-color: #999;
+  }
+
+  .btn:active {
+    background-color: #777;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    border: 1px solid #888;
   }
 
   .active {
+    background-color: orange;
+  }
+
+  .active:hover {
+    background-color: orangered;
+  }
+
+  .active:active {
     background-color: orange;
   }
 </style>
