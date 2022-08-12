@@ -24,16 +24,16 @@
       if (operandB) {
         switch (operator) {
           case "+":
-            currentDisplay = (operandA + operandB).toFixed(2);
+            currentDisplay = operandA + operandB;
             break;
           case "-":
-            currentDisplay = (operandA - operandB).toFixed(2);
+            currentDisplay = operandA - operandB;
             break;
           case "*":
-            currentDisplay = (operandA * operandB).toFixed(2);
+            currentDisplay = operandA * operandB;
             break;
           case "/":
-            currentDisplay = (operandA / operandB).toFixed(2);
+            currentDisplay = operandA / operandB;
             break;
           case "%":
             currentDisplay = operandA % operandB;
@@ -77,16 +77,16 @@
         if (operandB) {
           switch (operator) {
             case "+":
-              currentDisplay = (operandA + operandB).toFixed(2);
+              currentDisplay = operandA + operandB;
               break;
             case "-":
-              currentDisplay = (operandA - operandB).toFixed(2);
+              currentDisplay = operandA - operandB;
               break;
             case "*":
-              currentDisplay = (operandA * operandB).toFixed(2);
+              currentDisplay = operandA * operandB;
               break;
             case "/":
-              currentDisplay = (operandA / operandB).toFixed(2);
+              currentDisplay = operandA / operandB;
               break;
             case "%":
               currentDisplay = operandA % operandB;
