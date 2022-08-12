@@ -7,7 +7,8 @@
   let operandA;
   let operandB;
   let tmp = "";
-  let isCommaOn = false;
+  let isCommaOnA = false;
+  let isCommaOnB = false;
 </script>
 
 <div class="calculator">
@@ -21,7 +22,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"!"}
@@ -30,7 +32,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"%"}
@@ -39,7 +42,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"/"}
@@ -48,7 +52,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
     </div>
     <div class="row">
@@ -59,7 +64,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={8}
@@ -68,7 +74,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={9}
@@ -77,7 +84,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"*"}
@@ -86,7 +94,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
     </div>
     <div class="row">
@@ -97,7 +106,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={5}
@@ -106,7 +116,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={6}
@@ -115,7 +126,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"-"}
@@ -124,7 +136,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
     </div>
     <div class="row">
@@ -135,7 +148,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={2}
@@ -144,7 +158,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={3}
@@ -153,7 +168,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"+"}
@@ -162,7 +178,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
     </div>
     <div class="row">
@@ -173,7 +190,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"."}
@@ -182,7 +200,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
       <Button
         value={"="}
@@ -191,7 +210,8 @@
         bind:operandA
         bind:operandB
         bind:tmp
-        bind:isCommaOn
+        bind:isCommaOnA
+        bind:isCommaOnB
       />
     </div>
   </div>

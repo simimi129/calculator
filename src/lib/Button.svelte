@@ -5,7 +5,8 @@
   export let operandA;
   export let operandB;
   export let tmp;
-  export let isCommaOn = false;
+  export let isCommaOnA = false;
+  export let isCommaOnB = false;
 
   const audio = new Audio("/button.mp3");
 
@@ -17,21 +18,22 @@
       operandB = "";
       operator = "";
       tmp = "";
-      isCommaOn = false;
+      isCommaOnA = false;
+      isCommaOnB = false;
     } else if (value === "=") {
       if (operandB) {
         switch (operator) {
           case "+":
-            currentDisplay = operandA + operandB;
+            currentDisplay = (operandA + operandB).toFixed(2);
             break;
           case "-":
-            currentDisplay = operandA - operandB;
+            currentDisplay = (operandA - operandB).toFixed(2);
             break;
           case "*":
-            currentDisplay = operandA * operandB;
+            currentDisplay = (operandA * operandB).toFixed(2);
             break;
           case "/":
-            currentDisplay = operandA / operandB;
+            currentDisplay = (operandA / operandB).toFixed(2);
             break;
           case "%":
             currentDisplay = operandA % operandB;
@@ -42,7 +44,10 @@
       operator = "";
       tmp = "";
       operandB = "";
-      isCommaOn = false;
+      isCommaOnB = false;
+      if (!(currentDisplay + "").includes(".")) {
+        isCommaOnA = false;
+      }
     } else if (value === "!") {
       if (operandB) {
         operandB = operandB * -1;
@@ -54,13 +59,13 @@
       }
     } else if (value === ".") {
       if (!tmp) {
-        if (!isCommaOn) {
-          isCommaOn = true;
+        if (!isCommaOnA) {
+          isCommaOnA = true;
           currentDisplay += ".";
         }
       } else {
-        if (!isCommaOn) {
-          isCommaOn = true;
+        if (!isCommaOnB) {
+          isCommaOnB = true;
           tmp += ".";
         }
       }
@@ -72,16 +77,16 @@
         if (operandB) {
           switch (operator) {
             case "+":
-              currentDisplay = operandA + operandB;
+              currentDisplay = (operandA + operandB).toFixed(2);
               break;
             case "-":
-              currentDisplay = operandA - operandB;
+              currentDisplay = (operandA - operandB).toFixed(2);
               break;
             case "*":
-              currentDisplay = operandA * operandB;
+              currentDisplay = (operandA * operandB).toFixed(2);
               break;
             case "/":
-              currentDisplay = operandA / operandB;
+              currentDisplay = (operandA / operandB).toFixed(2);
               break;
             case "%":
               currentDisplay = operandA % operandB;
@@ -91,7 +96,10 @@
           operator = value;
           tmp = "";
           operandB = "";
-          isCommaOn = false;
+          isCommaOnB = false;
+          if (!(currentDisplay + "").includes(".")) {
+            isCommaOnA = false;
+          }
         }
         operator = value;
       }
