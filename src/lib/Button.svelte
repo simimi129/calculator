@@ -10,43 +10,55 @@
 
   const audio = new Audio("/button.mp3");
 
+  function reset() {
+    currentDisplay = "";
+    operandA = "";
+    operandB = "";
+    operator = "";
+    tmp = "";
+    isCommaOnA = false;
+    isCommaOnB = false;
+  }
+
+  function resetAfterEvaluation() {
+    operandA = currentDisplay;
+    operator = "";
+    tmp = "";
+    operandB = "";
+    isCommaOnB = false;
+    if (!(currentDisplay + "").includes(".")) {
+      isCommaOnA = false;
+    }
+  }
+
+  function evaluate() {
+    switch (operator) {
+      case "+":
+        currentDisplay = operandA + operandB;
+        break;
+      case "-":
+        currentDisplay = operandA - operandB;
+        break;
+      case "*":
+        currentDisplay = operandA * operandB;
+        break;
+      case "/":
+        currentDisplay = operandA / operandB;
+        break;
+      case "%":
+        currentDisplay = operandA % operandB;
+        break;
+    }
+  }
+
   function handleClick() {
     audio.play();
     if (value === "C") {
-      currentDisplay = "";
-      operandA = "";
-      operandB = "";
-      operator = "";
-      tmp = "";
-      isCommaOnA = false;
-      isCommaOnB = false;
+      reset();
     } else if (value === "=") {
       if (operandB) {
-        switch (operator) {
-          case "+":
-            currentDisplay = operandA + operandB;
-            break;
-          case "-":
-            currentDisplay = operandA - operandB;
-            break;
-          case "*":
-            currentDisplay = operandA * operandB;
-            break;
-          case "/":
-            currentDisplay = operandA / operandB;
-            break;
-          case "%":
-            currentDisplay = operandA % operandB;
-            break;
-        }
-      }
-      operandA = currentDisplay;
-      operator = "";
-      tmp = "";
-      operandB = "";
-      isCommaOnB = false;
-      if (!(currentDisplay + "").includes(".")) {
-        isCommaOnA = false;
+        evaluate();
+        resetAfterEvaluation();
       }
     } else if (value === "!") {
       if (operandB) {
@@ -75,31 +87,8 @@
         operandA = currentDisplay;
       } else {
         if (operandB) {
-          switch (operator) {
-            case "+":
-              currentDisplay = operandA + operandB;
-              break;
-            case "-":
-              currentDisplay = operandA - operandB;
-              break;
-            case "*":
-              currentDisplay = operandA * operandB;
-              break;
-            case "/":
-              currentDisplay = operandA / operandB;
-              break;
-            case "%":
-              currentDisplay = operandA % operandB;
-              break;
-          }
-          operandA = currentDisplay;
-          operator = value;
-          tmp = "";
-          operandB = "";
-          isCommaOnB = false;
-          if (!(currentDisplay + "").includes(".")) {
-            isCommaOnA = false;
-          }
+          evaluate();
+          resetAfterEvaluation();
         }
         operator = value;
       }
